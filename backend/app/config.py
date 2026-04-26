@@ -9,7 +9,7 @@ ENV_FILE_PATH = Path(__file__).resolve().parents[1] / ".env"
 class Settings(BaseSettings):
     app_name: str = "Task Manager API"
     environment: str = "development"
-    backend_port: int = 8000
+    app_port: int = 8000
 
     supabase_url: str | None = None
     supabase_service_role_key: str | None = None
