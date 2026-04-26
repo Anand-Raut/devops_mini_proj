@@ -22,7 +22,7 @@ pipeline {
     stage('Build Images') {
       steps {
         script {
-          env.IMAGE_TAG = "build-%BUILD_NUMBER%"
+          env.IMAGE_TAG = "build-" + env.BUILD_NUMBER
         }
         bat "docker build -t %BACKEND_IMAGE%:%IMAGE_TAG% backend"
         bat "docker build -t %FRONTEND_IMAGE%:%IMAGE_TAG% frontend"
@@ -71,7 +71,7 @@ pipeline {
 
   post {
     always {
-      bat 'kubectl -n %K8S_NAMESPACE% get all || exit 0'
+      bat 'kubectl -n %K8S_NAMESPACE% get all'
     }
   }
 }
