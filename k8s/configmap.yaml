@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: task-manager-config
+  namespace: mini-project
+data:
+  CORS_ORIGINS: http://localhost:30080,http://127.0.0.1:30080
